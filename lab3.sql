@@ -46,4 +46,4 @@ GROUP by rating
 HAVING mean_duration > 120
 ORDER BY mean_duration DESC;
 #3 Bonus
-SELECT DISTINCT last_name FROM sakila.actor;
+SELECT COUNT(DISTINCT last_name)FROM sakila.actor;
