@@ -1,7 +1,10 @@
 #Challenge 1
 #1
-SELECT MIN(length) as min_duration FROM sakila.film;
-SELECT MAX(length) as max_duration FROM sakila.film;
+SELECT 
+    MIN(length) AS min_duration, 
+    MAX(length) AS max_duration 
+FROM 
+sakila.film;
 SELECT * FROM sakila.film;
 SELECT FLOOR(AVG(length)/60) as hours,
 	   FLOOR(AVG(length)%60) as minutes
@@ -50,4 +53,4 @@ HAVING mean_duration > 120
 ORDER BY mean_duration DESC;
 
 #3 Bonus
-SELECT DISTINCT DISTINCT last_name FROM sakila.actor;
+SELECT last_name FROM actor GROUP BY last_name HAVING COUNT(*) = 1;
