@@ -1,10 +1,12 @@
 #Challenge 1
 #1
-SELECT MIN(length) as min_duration, MAX(length) as max_duration FROM sakila.film;
+SELECT MIN(length) as min_duration FROM sakila.film;
+SELECT MAX(length) as max_duration FROM sakila.film;
 SELECT * FROM sakila.film;
 SELECT FLOOR(AVG(length)/60) as hours,
 	   FLOOR(AVG(length)%60) as minutes
 FROM sakila.film;
+
 #2
 SELECT DATEDIFF(max(rental_date), min(rental_date)) as operating_days FROM sakila.rental;
 SELECT *, DATE_FORMAT(rental_date, "%d") as "weekday", DATE_FORMAT(rental_date, "%m") as "month"
@@ -25,9 +27,10 @@ ORDER BY title ASC;
 SELECT CONCAT(first_name, last_name), LEFT(email,3)
 FROM sakila.customer
 ORDER BY last_name ASC;
+
 #Challenge 2
 #1
-SELECT COUNT(DISTINCT title) FROM sakila.film;
+SELECT COUNT(DISTINCT title) as total_num_films FROM sakila.film;
 SELECT rating, COUNT(DISTINCT title) FROM sakila.film
 GROUP by rating;
 SELECT rating, COUNT(DISTINCT title) as total_released FROM sakila.film
@@ -45,5 +48,6 @@ FROM sakila.film
 GROUP by rating
 HAVING mean_duration > 120
 ORDER BY mean_duration DESC;
+
 #3 Bonus
-SELECT COUNT(DISTINCT last_name)FROM sakila.actor;
+SELECT DISTINCT DISTINCT last_name FROM sakila.actor;
